@@ -1,0 +1,63 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body
+            {
+                font-family: arial;    
+            }
+            h1
+            {
+                font-size: 20px;
+                background-color: darkseagreen; 
+                color: white;  
+                padding: .5em;
+            }
+            ul
+            {
+                list-style: none;
+            }
+        </style>
+        <script>
+            window.onload = funcionClase;
+            function funcionClase(){
+                
+                var numPlazas = prompt("Introduzca las plazas sobrantes");
+                var numAleatorio = new Array();
+                var alumno = "<h1>Alumnos admitidos</h1><ul>";
+                var alumnoNoAdmitidos = "<h1>Alumnos no admitidos</h1><ul>";
+                var posiblesAlumnos = ["persona01", "persona02", "persona03", "persona04", "persona05", "persona06", "persona07", "persona08", "persona09", "persona010", "persona011", "persona012", "persona013", 
+                    "persona014", "persona015", "persona016", "persona017", "persona018", "persona019", "persona020"];
+            
+            
+                for(i = 0 ; i < numPlazas; i++){
+                    numAleatorio = Math.floor(Math.random() * (posiblesAlumnos.length - 1 - 0 + 1)) + 0;
+                    alumno += "<li>";
+                    alumno += posiblesAlumnos[numAleatorio];
+                    alumno += "</li>";
+                    posiblesAlumnos.splice(numAleatorio, 1);
+                }
+                alumno += "</ul>";
+                
+                for(j = 0; j < posiblesAlumnos.length; j++){
+                    alumnoNoAdmitidos += "<li>";
+                    alumnoNoAdmitidos += posiblesAlumnos[j];
+                    alumnoNoAdmitidos += "</li>";
+                }
+                alumnoNoAdmitidos += "</ul>";
+                document.getElementById('alumnosAdmitidos').innerHTML = alumno;
+                document.getElementById('alumnoNoAdmitidos').innerHTML = alumnoNoAdmitidos;
+            }   
+        </script>
+    </head>
+    <body>
+        <div id="alumnosAdmitidos"></div>
+        <div id="alumnoNoAdmitidos"></div>
+    </body>
+</html>

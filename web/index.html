@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script>
+            window.onload=function(){
+               var pesetasEuros = document.getElementById("pesetasEuros").value;
+                //pesetasEuros = Number(pesetasEuros);
+                var btPesetasEuros = document.getElementById("btPesetasEuros");
+                 var btEurosPesetas = document.getElementById("btEurosPesetas");
+                valorMoneda = 166,386;
+        btPesetasEuros.onclick = function(){
+                    
+                 var noConvertidoEuros = pesetasEuros / valorMoneda;
+                  /* if(noConvertido){
+                       
+                   }*/
+                }
+               btEurosPesetas.onclick = function(){
+                 var noConvertidoPesetas = pesetasEuros * 166,386;
+                  /* if(noConvertido){
+                       
+                   }*/
+       
+                }
+                document.getElementById("euros").innerHTML = noConvertidoEuros;
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Conversor a Euros</legend>
+            <form>
+                <label>Pesetas</label>
+                <input type="text" id="pesetasEuros" value=""/>
+                <input type="text" id="euros"/>
+                <button id="btPesetasEuros">Convertir</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Conversor a Pesetas</legend>
+            <form>
+                <label>Euros</label>
+                <input type="text" id="eurosPesetas"/>
+                <input type="text" id="pesetas"/>
+                 <button id="btEurosPesetas">Convertir</button>
+            </form>
+        </fieldset>
+    </body>
+</html>

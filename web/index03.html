@@ -1,0 +1,116 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            *{
+                color: darkseagreen;
+                font-family: arial;
+
+            }
+            table, tr,td {
+                color: white;
+                padding-left: 25px;
+                padding-right: 25px;
+                border: 3px solid white;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            table {
+                background-color: darkseagreen;
+            }
+        </style>
+        <script>
+            window.onload = comparator;
+            function getRandomArbitrary(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            function comparator() {
+                var randomNumber = getRandomArbitrary(1, 100);
+                var arrayNumber = new Array();
+                var beginingDate = new Date();
+                var finalDate;
+                var startingTime = beginingDate.getTime();
+                var finalTime;
+
+                var userNumber = prompt("Introduzca un número");
+                x = 0;
+                arrayNumber[x] = userNumber;
+                i = true;
+                do {
+                    if (userNumber > randomNumber) {
+                        userNumber = prompt("Introduzca número más pequeño");
+                        x++;
+                        arrayNumber[x] = userNumber;
+                    }
+                    if (userNumber < randomNumber) {
+                        userNumber = prompt("Introduzca un número más alto");
+                        x++;
+                        arrayNumber[x] = userNumber;
+                    }
+                    if (userNumber == randomNumber) {
+                        finalDate = new Date();
+                        finalTime = finalDate.getTime();
+                        i = false;
+                    }
+
+                } while (i)
+                var result = "<table>";
+                for (j = 0; j < arrayNumber.length; j++) {
+                    result += "<tr>";
+                    result += "<td>";
+                    result += j + 1;
+                    result += "</td><td>";
+                    result += arrayNumber[j];
+                    result += "</td><td>";
+                    if (arrayNumber[j] > randomNumber) {
+                        message = "Introduzca un número más bajo";
+                    }
+                    if (arrayNumber[j] < randomNumber) {
+                        message = "Introduzca un número más alto";
+                    }
+                    if (arrayNumber[j] == randomNumber) {
+                        message = "¡Correcto!";
+                    }
+                    result += message;
+                    result += "</td></tr>";
+
+                }
+
+                var tiempoTranscurrido = finalTime - startingTime
+                var segundos = tiempoTranscurrido / (1000);
+                segundos = segundos.toFixed();
+                var minutos = tiempoTranscurrido / (1000 * 60);
+                minutos = minutos.toFixed();
+                var tiempo = "";
+
+                if (minutos == "0") {
+                    if (segundos == "0") {
+                        tiempo += tiempoTranscurrido + " Milisegundos";
+                    } else {
+                        tiempo += segundos + " Segundos";
+                    }
+                } else {
+                    tiempo += minutos + " minutos y " + segundos + " segundos"
+                }
+                
+                document.getElementById('tiempo').innerHTML = "Has tardado: " + tiempo;
+                document.getElementById('result').innerHTML = result;
+                document.getElementById('intentos').innerHTML = "El número total de intentos ha sido de: " + arrayNumber.length;
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>Adivina el número</h1>
+        <div id="result"></div>
+        <h4 id="intentos"></h4>
+        <h4 id="tiempo"></h4>
+        
+    </body>
+</html>

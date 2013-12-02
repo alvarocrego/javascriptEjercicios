@@ -1,0 +1,52 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            window.onload = funcionContarCaracteres;
+            function funcionContarCaracteres(){
+                var cadena = prompt("Introduce una cadena de caracteres");
+                
+                var primerBlanco = /^ /;
+                var ultimoBlanco = / $/;
+                var variosBlancos = /[]+/g;
+                
+                var caracter = cadena.replace (variosBlancos," ");
+                caracter = cadena.replace (primerBlanco,"");
+                caracter = cadena.replace (ultimoBlanco,"");
+                
+                var longuitud = caracter.length;
+                var palabra = caracter.split(" ");
+                
+                var rE = /[0-9]/g;
+                var found = cadena.match(rE).join('');
+                var min = /[a-z]/g;
+                var minusculas = cadena.match(min).join('');
+                var may = /[A-Z]/g;
+                var mayus = cadena.match(may).join('');
+                var sim =  /[^\w]/g;
+                var symbol = cadena.match(sim).join('');
+                
+                document.getElementById('resultado').innerHTML = longuitud;
+                document.getElementById('array').innerHTML = palabra.length;
+                document.getElementById('numero').innerHTML = found.length;
+                document.getElementById('mini').innerHTML = minusculas.length;
+                document.getElementById('mayu').innerHTML = mayus.length;
+                document.getElementById('simbolos').innerHTML = symbol.length;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="resultado"></div>
+        <div id="array"></div>
+        <div id="numero"></div>
+        <div id="mini"></div>
+        <div id="mayu"></div>
+        <div id="simbolos"></div>
+    </body>
+</html>

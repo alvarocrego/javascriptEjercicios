@@ -1,0 +1,84 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+ 
+            function array2list(){
+                var lista = ["Hola", "soy Pepito", "Feliz Navidad"];
+                
+                var orden = prompt("Introduce un booleano");
+               
+                
+                if(orden == "true"){ //predeterminadamente es true
+                    var listaFinal = "<ol>";
+                }else{
+                    listaFinal = "<ul>";
+                }
+                
+                for(i = 0; i < lista.length; i++){
+                    
+                    listaFinal += "<li>";
+                    listaFinal += lista[i];
+                    listaFinal += "</li>";
+                }
+                if(orden == "true"){
+                    listaFinal += "</ol>";
+                }else{
+                    listaFinal += "</ul>";
+                }
+                document.getElementById('lista').innerHTML = listaFinal;
+            }
+            function rarray2list(){
+                
+                var listaItems = [
+                    "", 
+                    "item1", 
+                    ["item2", "sub21", "sub22"],
+                    ["item3", "sub31", "sub32", "sub33"],
+                    ["item4",
+                        ["sub41", "doblesub411", "doblesub412", "doblesub413"],
+                        "sub42"],
+                    ["item5",
+                        ["sub51",
+                            ["doblesub511", "triplesub5111", "triplesub5112"],
+                            "doblesub512", "doblesub513"],
+                        "sub52"]
+                ];
+                
+                var orden = prompt("Introduce un booleano");
+               
+                
+                if(orden == "true"){ //predeterminadamente es true
+                    var listaItemsFinal = "<ol>";
+                }else{
+                    listaItemsFinal = "<ul>";
+                }
+                
+                for(i = 0; i < listaItems.length; i++){
+                    
+                    listaItemsFinal += "<li>";
+                    listaItemsFinal += listaItems[i];
+                    listaItemsFinal += "</li>";
+                }
+                if(orden == "true"){
+                    listaItemsFinal += "</ol>";
+                }else{
+                    listaItemsFinal += "</ul>";
+                }
+                document.getElementById('lista2').innerHTML = listaItemsFinal;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="lista"  onclick="array2list()">
+        <div id="lista"></div>
+         <input type="button" value="lista recursiva"  onclick="rarray2list()">
+        <div id="lista2"></div>
+    </body>
+</html>

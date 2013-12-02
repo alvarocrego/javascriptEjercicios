@@ -1,0 +1,55 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            
+            h1{
+                
+              color: darkseagreen;  
+            }
+            
+            div{
+                
+                font-family: arial;
+                color: white;
+                background-color: darkseagreen;
+                padding: 1em;
+                
+            }
+            
+        </style>
+        <script>
+            
+            window.onload = funcionFactorial;
+            function funcionFactorial() {
+                
+                var numeroIntroducido = prompt("Introduce un número entero");
+                numeroIntroducido = parseInt(numeroIntroducido);
+                var resultado = numeroIntroducido;
+                var operacionFactorial = "";
+                
+                for(i = numeroIntroducido - 1; i >= 1; i--){
+                    
+                    resultado *= i;
+                    operacionFactorial += i;
+                    
+                    if (i > 1){
+                    operacionFactorial += " x ";
+                    }
+                }
+                document.getElementById('resultadoFinal').innerHTML = numeroIntroducido + "!" + " = " + numeroIntroducido + " x "+ operacionFactorial + " = " + resultado;
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1>Calculo Factorial</h1>
+        <div id="resultadoFinal"></div>
+    </body>
+</html>

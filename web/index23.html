@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body
+            {
+                font-family: arial;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var select = document.getElementById("selectNumber"); 
+                var options = ["Pepito", "Juanito", "Menganito", "Estefanito", "Aurielito"]; 
+
+                for(i = 0; i < options.length; i++) {
+                    opt = document.createElement("option");
+                    opt.value = options[i];
+                    opt.innerHTML = options[i];
+                    select.appendChild(opt);           
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Mi primer combo</h1>
+        <form id="myForm">
+            <select id="selectNumber">
+                <option>Elige un nombre</option>
+            </select>
+        </form>
+    </body>
+</html>

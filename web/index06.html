@@ -1,0 +1,46 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>     
+            *{
+                font-family: arial;
+            }
+            p{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-right: 10px;
+                padding-left:  10px;
+                padding-right:  10px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                background-color: darkseagreen;
+                color: white;
+            }
+       </style>
+        <script>
+            //Programa que te dice si el número introducido es par o impar
+             window.onload = functionEvenAndOdd;
+             function functionEvenAndOdd(){
+            var resultOperation;
+            var request = prompt ("Introduzca un numero entero positivo");
+            if (request % 2 == 0){
+                resultOperation = "<p>El número introducido es Par</p>";
+            }else{
+                resultOperation = "<p>El número introducido es Impar</p>";
+            }
+            document.getElementById('result').innerHTML= resultOperation;
+            document.getElementById('request').innerHTML= request;
+             }
+        </script>
+    </head>
+    <body>
+         <div id ="result"></div>
+         <div id ="request"></div>
+    </body>
+</html>

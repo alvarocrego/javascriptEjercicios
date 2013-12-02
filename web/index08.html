@@ -1,0 +1,106 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            *{
+                font-family: arial;
+            }
+        </style>
+        <script>
+            window.onload = insertDate;
+            function insertDate(){
+             
+                var day = prompt("Introduce un día");
+                var month = prompt("Introduzca un mes");
+                var year = prompt("Introduce un año");
+                var finalDate;
+                if(day < 1 || day > 31){
+                    prompt("Debes introducir un día que esté dentro del rango: 1-31"); 
+                }
+                if(month < 1 || month > 12){
+                    prompt("Debes introducir un mes que esté dentro del rango: 1-12"); 
+                }
+                if(year < 1950 || year > 2013){
+                    prompt("Debes introducir un año que esté dentro del rango: 1950-2013"); 
+                }
+                var weekDate = new Date(year, month -1, day);
+                
+                switch(weekDate.getDay()){
+                    case 0:
+                        finalDate="Domingo";
+                        break;
+                    case 1:
+                        finalDate="Lunes";
+                        break;
+                    case 2:
+                        finalDate="Martes";
+                        break;
+                    case 3:
+                        finalDate="Miércoles";
+                        break;  
+                    case 4:
+                        finalDate="Jueves";
+                        break;  
+                    case 5:
+                        finalDate="Viernes";
+                        break;
+                    case 6:
+                        finalDate="Sábado";
+                        break;
+                }
+                finalDate += ", " + weekDate.getDate() + " de ";
+                
+                switch(weekDate.getMonth()){
+                    case 0:
+                        finalDate +="Enero";
+                        break;
+                    case 1:
+                        finalDate +="Febrero";
+                        break;
+                    case 2:
+                        finalDate+="Marzo";
+                        break;
+                    case 3:
+                        finalDate+="Abril";
+                        break;  
+                    case 4:
+                        finalDate+="Mayo";
+                        break;  
+                    case 5:
+                        finalDate+="Junio";
+                        break;
+                    case 6:
+                        finalDate+="Julio";
+                        break;
+                    case 7:
+                        finalDate+="Agosto";
+                        break;
+                    case 8:
+                        finalDate+="Septiembre";
+                        break;
+                    case 9:
+                        finalDate+="Octubre";
+                        break;
+                    case 10:
+                        finalDate+="Noviembre";
+                        break;
+                    case 11:
+                        finalDate+="Diciembre";
+                        break;
+                }
+               
+                 
+        document.getElementById('fechaFormateada').innerHTML= finalDate + " de " + weekDate.getFullYear();
+            } 
+        </script>
+    </head>
+    <body>
+        <div id="fechaFormateada"></div>
+    </body>
+</html>

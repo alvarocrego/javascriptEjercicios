@@ -1,0 +1,56 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body{
+                font-family: arial;
+                color: #999;
+            }
+            tr:first-child {
+                font-weight: bold;
+            }
+            table, tr,td {
+                color: white;
+                padding-left: 25px;
+                padding-right: 25px;
+                border: 3px solid white;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            table {
+                background-color: darkseagreen;
+            }
+        </style>
+        <script>
+            window.onload = funcionTablaTemperaturas;
+            function funcionTablaTemperaturas(){
+                var fahreheit = "";
+                var celsius = "";
+                var tabla = "";
+                tabla += "<table><tr><td>Fahrenheit</td><td>Celsius</td></tr>";
+                for(i = 100; i >= -100; i--){
+                    tabla += "<tr>";
+                    tabla += "<td>";
+                    tabla += Math.round((i * 1.8) + 32) + "º";
+                    tabla += "</td>";
+                    tabla += "<td>";
+                    tabla += i + "º";
+                    tabla += "</td>";
+                    tabla += "</tr>";
+                }
+                tabla += "</table>";
+                document.getElementById('tablaTemperaturas').innerHTML = tabla;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 20. Tabla de temperaturas</h1>
+        <div id="tablaTemperaturas"></div>
+    </body>
+</html>

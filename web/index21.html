@@ -1,0 +1,160 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body{
+                font-family: arial;
+                color: #222;
+            }
+            h1{
+                color: #999;
+            }
+        </style>
+        <script>
+            window.onload = funcion;
+            function funcion(){
+                
+                var num = prompt("Introduzca un número de líneas");
+                  usados = new Array();
+                 usados2 = new Array();
+                var primerGrupo = new Array();
+                primerGrupo[0]= "No obstante";
+                primerGrupo[1]= "Por otra parte";
+                primerGrupo[2]= "Asimismo";
+                primerGrupo[3]= "Sin embargo no hemos de olvidar que";
+                primerGrupo[4]= "De igual manera";
+                primerGrupo[5]= "La práctica prueba que";
+                primerGrupo[6]= "Y no es menos cierto que";
+                primerGrupo[7]= "Las experiencias, ricas y diversas, muestran que";
+                primerGrupo[8]= "Y aún así";
+                primerGrupo[9]= "No obstante";
+                primerGrupo[10]= "Incluso, bien pudiéramos atrevernos a sugerir que";
+                primerGrupo[11]= "Es obvio señalar que";
+                primerGrupo[12]= "De hecho";
+                primerGrupo[13]= "También cabe añadir en este punto que";
+    
+                var segundoGrupo = new Array();
+                segundoGrupo[0]= "la realización de las premisas del programa";
+                segundoGrupo[1]= "la complejidad de los estudios de los dirigentes";
+                segundoGrupo[2]= "el aumento constante, en cantidad y en extensión, de nuestra actividad";
+                segundoGrupo[3]= "la estructura actual de la organización";
+                segundoGrupo[4]= "el nuevo modelo de actividad de la organización";
+                segundoGrupo[5]= "el desarrollo continuo de distintas formas de actividad";
+                segundoGrupo[6]= "nuestra actividad de información y propaganda";
+                segundoGrupo[7]= "el reforzamiento y desarrollo de las estructuras";
+                segundoGrupo[8]= "la consulta con los numerosos militantes";
+                segundoGrupo[9]= "el inicio de la acción general de formación de las actitudes";
+                segundoGrupo[10]= "un relanzamiento específico de todos los sectores implicados";
+                segundoGrupo[11]= "la superación de experiencias difíciles";
+                segundoGrupo[12]= "una aplicación indiscriminada de los factores confluyentes";
+                segundoGrupo[13]= "el proceso consensuado de unas y otras aplicaciones concurrentes";
+                segundoGrupo[14]= "nos obliga a un exhaustivo análisis";
+                segundoGrupo[15]= "cumple un rol esencial en la formación";
+                segundoGrupo[16]= "exige la precisión y la determinación";
+                segundoGrupo[17]= "ayuda a la preparación y a la realización";
+                segundoGrupo[18]= "garantiza la participación de un grupo importante en la formación";
+                segundoGrupo[19]= "cumple deberes importantes en la determinación";
+                segundoGrupo[20]= "facilita la creación";
+                segundoGrupo[21]= "obstaculiza la apreciación de la importancia";
+                segundoGrupo[22]= "ofrece un ensayo interesante de verificación";
+                segundoGrupo[23]= "implica el proceso de reestructuración y modernización";
+                segundoGrupo[24]= "habrá de significar un auténtico y eficaz punto de partida";
+                segundoGrupo[25]= "permite en todo caso explicitar las razones fundamentales";
+                segundoGrupo[26]= "asegura, en todo caso, un proceso muy sensible de inversión";
+                segundoGrupo[27]= "deriva de una indirecta incidencia superadora";
+                              
+                var tercerGrupo = new Array();
+                tercerGrupo[0]= "de las condiciones financieras y administrativas existentes.";
+                tercerGrupo[1]= "de las directivas de desarrollo para el futuro.";
+                tercerGrupo[2]= "del sistema de participación general.";
+                tercerGrupo[3]= "de las actitudes de los miembros hacia sus deberes ineludibles.";
+                tercerGrupo[4]= "de las nuevas proposiciones.";
+                tercerGrupo[5]= "de las direcciones educativas en el sentido del progreso.";
+                tercerGrupo[6]= "del sistema de formación de cuadros que corresponda a las necesidades.";
+                tercerGrupo[7]= "de las condiciones de las actividades apropiadas.";
+                tercerGrupo[8]= "del modelo de desarrollo.";
+                tercerGrupo[9]= "de las formas de acción.";
+                tercerGrupo[10]= "de las básicas premisas adoptadas.";
+                tercerGrupo[11]= "de toda una casuística de amplio espectro.";
+                tercerGrupo[12]= "de los elementos generadores.";
+                tercerGrupo[13]= "de toda una serie de criterios ideológicamente sistematizados en un frente común de actuación regeneradora.";
+                
+                var mensaje = "";
+                   y = 1;
+                for (x = 1; x <= num; x++) {
+                    nPrimerGrupo = aleatorio(0, primerGrupo.length - 1);
+                    nSegundoGrupo = Math.floor(Math.random() * (segundoGrupo.length - 1 - 0 + 1)) + 0;
+                    nTerceroGrupo = aleatorio2(0, tercerGrupo.length - 1);
+                    if (x == 1) {
+                        usados2.push(nTerceroGrupo);
+                        usados.push(nPrimerGrupo)
+                    }
+                    mensaje += primerGrupo[nPrimerGrupo] + " " + segundoGrupo[nSegundoGrupo] + " " + tercerGrupo[nTerceroGrupo] + " ";
+                    if (y == 5) {
+                        mensaje += "<br/>";
+                        y = 0;
+                    }
+                    y++;
+                }
+                document.getElementById("discurso").innerHTML = mensaje;
+            };
+
+            function aleatorio(min, max) {
+                if (usados.length <= (max - min)) {
+                    while (repe != false) {
+                        var num = Math.floor(Math.random() * (max - min + 1)) + min;
+                        var repe = repetido(num);
+                    }
+
+                    return num;
+                } else {
+                    return null;
+                }
+            }
+
+            function repetido(num) {
+                var repe = false;
+                for (i = 0; i < usados.length; i++) {
+                    if (num == usados[i]) {
+                        repe = true;
+                    }
+                }
+                return repe;
+            }
+
+            function aleatorio2(min, max) {
+                if (usados2.length <= (max - min)) {
+                    while (repe != false) {
+                        var num = Math.floor(Math.random() * (max - min + 1)) + min;
+                        var repe = repetido2(num);
+                    }
+
+                    return num;
+                } else {
+                    return null;
+                }
+            }
+
+            function repetido2(num) {
+                var repe = false;
+                for (i = 0; i < usados2.length; i++) {
+                    if (num == usados2[i]) {
+                        repe = true;
+                    }
+                }
+                return repe;
+            }
+           
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 21. Discurso</h1>
+        <div id="discurso"></div>
+    </body>
+</html>

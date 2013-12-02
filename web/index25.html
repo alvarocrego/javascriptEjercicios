@@ -1,0 +1,93 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <style>
+            body{
+                font-family: arial;
+                color: #999;
+            }
+            tr:first-child {
+                font-weight: bold;
+            }
+            table, tr, th, td {
+                color: white;
+                padding: 25px;
+                border: 3px solid white;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            table {
+                background-color: darkseagreen;
+            }
+        </style>
+        <script>
+            function array2table(){
+                var a = new Array (4);
+                a[0] = [12,10,3,12];
+                a[1] = [20,2,111,23];
+                a[2] = [23,44,55,34];
+                a[3] = [23,44,55,56];
+                var tabla = "";
+                
+                tabla += "<table summary='Submitted table designs' class='tabla1'>";
+                tabla += "<caption>Ejercicio 25. Array a tabla</caption>";
+               
+          
+                
+                for(i = 0; i < a.length; i++){
+                    aDentroArray = a[i];
+                    if(i == 0){
+                        tabla += "<thead>";
+                    }
+                    if(i == 3){
+                        tabla += "<tfoot>";
+                    }
+                    if(i == 1){
+                        tabla += "<tbody>";
+                    }
+                    if(i == 2){
+                        tabla += "<tr class='odd'>";
+                    }else{
+                        tabla += "<tr>";
+                    }
+                    
+                    for(j = 0; j < aDentroArray.length; j++){
+                        if(i == 0 || i == 3){
+                            tabla += "<th scope='col'>" + aDentroArray[j] + "</th>";
+                        }else if(i == 1 || i == 2){
+                            tabla += "<th scope='row'>" + aDentroArray[j] + "</th>";
+                        }else{
+                            tabla += "<td>" + aDentroArray[j] + "</td>";
+                        }
+                       
+                    }
+                   
+                        
+                }
+                tabla += "</tr>";
+                if(i == 0){
+                    tabla += "</thead>";
+                }
+                if(i == 3){
+                    tabla += "</tfoot>";
+                }
+                if(i == 1){
+                    tabla += "</tbody>";
+                }
+                tabla += "</table>";
+                document.getElementById('tabla').innerHTML = tabla;
+            }
+        
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Tabla de Array dentro de Array"  onclick="array2table()">
+        <div id="tabla"></div>
+    </body>
+</html>

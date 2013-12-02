@@ -1,0 +1,93 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body{
+                font-family: arial;
+                color: #aaa;
+            }
+            p#titulo{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-right: 10px;
+                padding-left:  10px;
+                padding-right:  10px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                background-color: darkseagreen;
+                color: white;
+            }
+
+        </style>
+        <script>
+            window.onload = funcionNumerosRomanos;
+            function funcionNumerosRomanos(){
+                var nIntroducido = prompt("Introduce un número entero");
+                document.getElementById('numeroIntroducido').innerHTML = "<p id='titulo'>Número introducido por el usuario</p>" + "<p>" + nIntroducido + "</p>" ;
+                if (nIntroducido.match(/[0-9]/g)){
+                    document.getElementById('numeroCalculado').innerHTML = "<p id='titulo'>Número introducido en números romanos</p>" + "<p>" + romano(nIntroducido) + "</p>";
+                }else{
+                    document.getElementById('numeroCalculado').innerHTML = "<p id='titulo'>Número introducido por el usuario</p>" + "<p>" + decimal(nIntroducido) + "</p>";
+                }
+            }
+            
+            function romano(cadena){
+                var arrayRomano = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV','I'];
+                var arrayDecimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+                var intDecimal = 0;
+                var stringRomano = "";
+                intDecimal = parseInt(cadena);
+                if (intDecimal > 10000){
+                    return "No se pueden contar números romanos a partir de 10000";
+                }
+                for(var i = 0; i < arrayRomano.length; i++){
+                    while(intDecimal >= arrayDecimal[i]){
+                        stringRomano += arrayRomano[i];
+                        intDecimal -= arrayDecimal[i];
+                    }
+                }
+                return stringRomano;
+            }
+            function decimal(cadena){
+                var arrayRomano = ['M', 'D', 'C', 'L', 'X', 'V', 'I'];
+                var arrayDecimal = [1000, 500, 100, 50, 10, 5, 1];
+                var stringRomano = "";
+                var intDecimal = 0;
+                var intDecimal2 = 0;
+                var temporalRomano = 0;
+                stringRomano = cadena;
+                stringRomano = stringRomano.toUpperCase();
+                for(var i = 0; i < stringRomano.length; i++){
+                    for(var j = 0; j < arrayRomano.length; j++){
+                        if(arrayRomano[j] == stringRomano.charAt(i)){
+                            intDecimal2 = arrayDecimal[j];
+                            break;
+                        }
+                        intDecimal2 = 0;
+                    }
+                    if(intDecimal2 == 0){
+                        return "simbolo desconocido";
+                    }
+                    if(temporalRomano < intDecimal2){
+                        temporalRomano *= -1;
+                    }
+                    intDecimal += temporalRomano;
+                    temporalRomano = intDecimal2;
+                }
+                intDecimal += temporalRomano;
+                return intDecimal;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 17</h1>
+        <div id="numeroIntroducido"></div>
+        <div id="numeroCalculado"></div>
+    </body>
+</html>

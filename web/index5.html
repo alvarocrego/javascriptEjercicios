@@ -1,0 +1,58 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body{
+                font-family: arial;
+                color: #999;
+                font-weight: bold;
+            }
+            td#conversionAeuros,#conversionApesetas{
+                color: darkseagreen;
+            }
+        </style>
+        <script>
+            function funcionEuros(){
+ 
+                var valorMoneda = 166.386;
+                var conversionPesetas = document.conversor.euros.value * valorMoneda
+                var pesetasSinDecimales = parseInt(conversionPesetas);
+                
+                document.getElementById('conversionApesetas').innerHTML =  pesetasSinDecimales + " pts";
+            }
+            function funcionPts(){
+                
+                var valorMoneda = 166.386;
+                var conversionEuros = document.conversor.pts.value  / valorMoneda;
+                var eurosConRedondeo = Math.round(conversionEuros * 100) / 100;
+              
+                document.getElementById('conversionAeuros').innerHTML =  eurosConRedondeo + " €";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 5. Conversor de Moneda</h1>
+        <form name="conversor">
+            <table>
+                <tr>
+                    <td><input type="text" name="euros">euros</td>
+                    <td><input type="text" name="pts">pesetas</td>
+                </tr>
+                <tr>
+                    <td id="conversionApesetas"></td>
+                    <td id="conversionAeuros"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value=" Convertir a pesetas" onclick="funcionEuros()"></td>
+                    <td><input type="button" value="Convertir a euros" onclick="funcionPts()"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

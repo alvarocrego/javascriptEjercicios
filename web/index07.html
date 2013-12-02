@@ -1,0 +1,76 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>     
+            *{
+                font-family: arial;
+            }
+       </style>
+        <script>
+            //Ordena los números introducidos de menor a mayor.
+            window.onload = functionOrden;
+            function functionOrden() {
+                var number1 = prompt("Introduzca un número entero");
+                var number2 = prompt("Introduzca un número entero");
+                var number3 = prompt("Introduzca un número entero");
+                var fila1;
+                var fila2;
+                var fila3;
+                number1 =parseInt(number1);
+                number2 =parseInt(number2);
+                number3 =parseInt(number3);
+                if (number1 < number2 && number1 < number3) {
+                    fila1 = number1;
+                }
+                if (number2 < number1 && number2 < number3) {
+                    fila1 = number2;
+                }
+                if (number3 < number2 && number3 < number1) {
+                    fila1 = number3;
+                }
+                if (number1 > number2 && number1 > number3) {
+                    fila3 = number1;
+                }
+                if (number2 > number1 && number2 > number3) {
+                    fila3 = number2;
+                }
+                if (number3 > number2 && number3 > number1) {
+                    fila3 = number3;
+                }
+                if (number1 > number2 && number1 < number3) {
+                    fila2 = number1;
+                }
+                if (number1 < number2 && number1 > number3) {
+                    fila2 = number1;
+                }
+                if (number2 > number3 && number2 < number1) {
+                    fila2 = number2;
+                }
+                if (number2 < number3 && number2 > number1) {
+                    fila2 = number2;
+                }
+                if (number3 > number2 && number3 < number1) {
+                    fila2 = number2;
+                }
+                if (number3 < number2 && number3 > number1) {
+                    fila2 = number3;
+                }
+
+                document.getElementById('fila1').innerHTML = fila1;
+                document.getElementById('fila2').innerHTML = fila2;
+                document.getElementById('fila3').innerHTML = fila3;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="fila1"></div>
+        <div id="fila2"></div>
+        <div id="fila3"></div>
+    </body>
+</html>

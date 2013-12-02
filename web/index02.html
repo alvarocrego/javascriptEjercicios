@@ -1,0 +1,48 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            *{
+
+                font-family: arial;        
+            }
+        </style>
+        <script>
+            //Le dice al navegador que hasta que no se carge la página no ejecute la función.
+            window.onload = numbersset;
+            function numbersset() {
+                var y = 0;
+                var insertNumber = 0;
+                var totalAddition = 0;
+                var message = "Introduce un número";
+                while (insertNumber != "fin") {
+                    insertNumber = prompt(message);
+                    if (insertNumber.match(/[a-zA-Z]/)) {
+                        message = "Debes introducir un número y no letras";
+                    } else {
+                        message = "Introduce otro número";
+                        insertNumber = parseInt(insertNumber);
+                        totalAddition += insertNumber;
+                        y++;
+                    }
+
+                }
+                var average = (totalAddition) / y;
+                document.getElementById('totalnumerosintroducidos').innerHTML = "Total de números introducidos: " + y;
+                document.getElementById('totalsumadenumerosintroducidos').innerHTML = "Total de la suma: " + totalAddition;
+                document.getElementById('media').innerHTML = "Media: " + average;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="totalnumerosintroducidos"></div>
+        <div id="totalsumadenumerosintroducidos"></div>
+        <div id="media"></div>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body{
+                font-family: arial;
+                color: #aaa;
+            }
+            p{
+                background-color: darkseagreen;
+                padding: 10px;
+                color:white;
+            }
+        </style>
+        <script>
+            window.onload = funcionDescuento;
+            function funcionDescuento(){
+                
+                var precio = prompt("Introduzca el precio del artículo");
+                var stock = prompt("Introduzca el stock del producto");
+                var descuento = "";
+                
+                switch (true)
+                {
+                    case precio < 100 && stock < 10:
+                        descuento = precio - (precio * 0.02);
+                        break;
+                    case precio < 100 && stock < 100:
+                        descuento = precio - (precio * 0.1);
+                        break;
+                    case precio < 100 && stock < 1000:
+                        descuento = precio - (precio * 0.25);
+                        break;
+                    case precio >= 100 || precio <= 1000 && stock < 10:
+                        descuento = precio - (precio * 0.04);
+                        break;
+                    case precio >= 100 || precio <= 1000 && stock < 1000:
+                        descuento = precio - (precio * 0.08);
+                        break;
+                    case precio >= 1000 && stock < 100:
+                        descuento = precio - (precio * 0.03);
+                        break;
+                    case precio >= 1000 && stock >= 100 || stock <= 200:
+                        descuento = precio - (precio * 0.05);
+                        break;
+                    case precio >= 1000 && stock > 200:
+                        descuento = precio - (precio * 0.07);
+                        break;
+                }
+                document.getElementById('precio').innerHTML = "<p>Precio del producto: " + precio + " €</p>";
+                document.getElementById('stock').innerHTML = "<p>Stock: " + stock + " €</p>";
+                document.getElementById('descuento').innerHTML = "<p>Descuento: " + descuento + " €</p>";  
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 18</h1>
+        <div id="precio"></div>
+        <div id="stock"></div>
+        <div id="descuento"></div>
+    </body>
+</html>
